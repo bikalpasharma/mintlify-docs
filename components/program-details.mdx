@@ -1,0 +1,77 @@
+---
+title: 'Program Details'
+description: 'Program details component with nested components support'
+icon: 'file-lines'
+---
+
+The program details component has been updated to accept nested components and can function as both a page component and a sub-component.
+
+## Component Modes
+
+<CardGroup cols={2}>
+  <Card title="Sub-Component Mode" icon="puzzle-piece">
+    - Uses the core library component (`ProgramDetailsCard`)
+    - Data is passed directly as props
+    - Used when `program-details` is nested inside another component
+  </Card>
+  <Card title="Page Component Mode" icon="file">
+    - Uses a local wrapper (`ProgramDetailsCardWrapper`)
+    - Component fetches its own data using UUID
+    - Used when `program-details` is a top-level page element defined in `controlElement.elementCode`
+  </Card>
+</CardGroup>
+
+## Structure Example
+
+```javascript
+export const programDetails = {
+    componentType: 'program-details',
+    uuid: generateUniqueId(),
+    data: {
+        title: 'Council of Sales Excellence (COSE)',
+        hasTitleDivider: true,
+        description: 'This program description is typically taken from the incentive brochure. It is the high-level explanation of the incentive, the broader initiative, and how to earn rewards.',
+        asOfDate: 'Jan 3, 2024 - Jan 2, 2025',
+        status: 'Enrolled'
+    },
+    components: [
+        {
+            uuid: generateUniqueId(),
+            componentType: 'button-container',
+            dataList: [
+                {
+                    variant: 'toyota-filled-red',
+                    label: 'Rewards',
+                    size: 'medium',
+                    type: 'button',
+                    url: '/rewards'
+                },
+                {
+                    variant: 'white-filled',
+                    label: 'Help Center',
+                    size: 'small',
+                    type: 'button',
+                    url: '/help-center'
+                }
+            ]
+        },
+        {
+            uuid: generateUniqueId(),
+            componentType: 'program-details',
+            data: {
+                title: 'Payout',
+                hasDescriptionDivider: false,
+                description: '<ul style="list-style: none; margin-left: 10px; padding-left: 0; display: flex; flex-direction: column; gap: 12px;"> <li>Payouts are made quarterly based on the previous quarter\'s performance.</li> <li>Payouts are made quarterly based on the previous quarter\'s performance.</li> <li>Ensure your payment details are up to date in the Universal Motors Partner Portal.</li> </ul>'
+            }
+        }
+    ]
+};
+```
+
+## Example Preview
+
+<Frame>
+  <img src="/components-documentation/img/program-details.png" alt="Program Details Component Example" />
+</Frame>
+
+Program details card showing title, description, enrollment status, and nested payout information.

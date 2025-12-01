@@ -1,0 +1,47 @@
+---
+title: 'Multiple Cards in One'
+description: 'Component for combining multiple cards into a single container'
+icon: 'layer-group'
+---
+
+The `multiple-cards-in-one` component has been updated to accept children as an array of page components.
+
+## Structure
+
+```javascript
+{
+    uuid: generateUniqueId(),
+    column: '1',
+    elementCode: 'multiple-cards-in-one',
+    children: [
+        {
+            uuid: 'progress-bar',
+            elementCode: 'progress-bar',
+            configControl: {
+                paxId: '1234',
+                uuid: 'progress-bar'
+            }
+        },
+        {
+            uuid: 'bullet-list-uuid',
+            elementCode: 'bullet-list',
+            configControl: {
+                paxId: '1234',
+                uuid: 'bulletsListParent'
+            }
+        }
+    ]
+}
+```
+
+## Example Preview
+
+<Frame>
+  <img src="/components-documentation/img/multiple-cards-in-one.png" alt="Multiple Cards in One Component Example" />
+</Frame>
+
+Multiple cards combined in a single container with progress bar and bullet list components.
+
+## Children Array
+
+The `children` property accepts an array of page components as defined in the [Page Component Reference](/components/reference#page-component-reference).

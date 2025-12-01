@@ -1,0 +1,69 @@
+---
+title: 'Program Header'
+description: 'Program header component with banner image and configurable button containers'
+icon: 'image'
+---
+
+The program header component displays a banner image with configurable button containers.
+
+## Structure
+
+```javascript
+export const pageHeaderCommon = {
+    componentType: 'page-header',
+    uuid: generateUniqueId(),
+    data: {
+        large: '/header-banner.jpg',
+        medium: '/header-banner.jpg',
+        small: '/header-banner.jpg'
+    },
+    components: [
+        {
+            uuid: generateUniqueId(),
+            componentType: 'button-container',
+            dataList: [
+                {
+                    variant: 'toyota-filled-red',
+                    label: 'Rewards',
+                    size: 'medium',
+                    type: 'button',
+                    url: '/rewards'
+                },
+                {
+                    variant: 'white-filled',
+                    label: 'Help Center',
+                    size: 'small',
+                    type: 'button',
+                    url: '/help-center'
+                }
+            ]
+        }
+    ]
+};
+```
+
+## Example Preview
+
+<Frame>
+  <img src="/components-documentation/img/program-header.png" alt="Program Header with Button Container Example" />
+</Frame>
+
+Program header displaying banner image with Rewards and Help Center buttons.
+
+## Available Component Types
+
+| Component Type | Component Name |
+|----------------|----------------|
+| `alert-banner` | AlertBannerWrapper |
+| `bullet-text` | BulletsListRewardsSubComponent |
+| `button-container` | ButtonContainerCore |
+| `certification-details` | CertificationDetails |
+| `general-header` | GeneralHeader |
+| `grid` | Grid |
+| `image` | Image |
+| `kpi-details` | KpiDetails |
+| `my-programs-header` | MyProgramHeader |
+| `stat-box` | StatBox |
+| `my-programs-details` | MyProgramDetails |
+| `program-details` | ProgramDetailsCard |
+| `title-header` | TitleHeader |
